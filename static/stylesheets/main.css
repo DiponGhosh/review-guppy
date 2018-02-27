@@ -1,0 +1,54 @@
+@font-face
+{
+	font-family: "Smythe-Regular";
+	src: url("Smythe-Regular.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.heading
+{
+	font-family: Smythe-Regular, sans-serif;
+	font-style: normal;
+	font-weight: 900;
+}
+
+.heading-container
+{
+	background-color: #5995DA;
+	padding: 30px;
+	display: flex;
+	justify-content: center;
+}
+
+.search-container
+{
+	background-color: #f3f3f3;
+	padding: 100px;
+	display: flex;
+	justify-content: center;
+}
+
+.search-box
+{
+	width: 50%;
+	height: 35px;
+	border-radius: 5px;
+	font-size: 12px;
+	font-family: Smythe-Regular, sans-serif;
+	font-style: normal;
+}
+
+.search-button
+{
+	width: 40px;
+	height: 35px;
+	border-radius: 5px;
+	font-size: 18px;
+}
+
+
