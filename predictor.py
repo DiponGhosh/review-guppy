@@ -6,7 +6,6 @@ from nltk.stem.porter import PorterStemmer
 
 def Predictor(list_of_review):
 
-
     classifier_model = pickle.load(open('trained_model.pkl', 'rb'))
     vectorizer_model = pickle.load(open('vectorized_model.pkl', 'rb'))
 
@@ -15,6 +14,8 @@ def Predictor(list_of_review):
     for item in list_of_review:
         print(item + "\n\n")
     '''
+
+    nltk.download('stopwords')
 
     input = np.array(list_of_review)
     input_test = np.array([])
