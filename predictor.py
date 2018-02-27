@@ -15,7 +15,7 @@ def Predictor(list_of_review):
         print(item + "\n\n")
     '''
 
-    nltk.download('stopwords')
+    #nltk.download('stopwords')
 
     input = np.array(list_of_review)
     input_test = np.array([])
