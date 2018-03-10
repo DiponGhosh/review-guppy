@@ -1,15 +1,24 @@
 import re
 import pandas
 import requests
+import grequests
 from bs4 import BeautifulSoup
+from threading import Thread
 
 
 '''
 for item in list_rev:
 	print(item + "\n\n") '''
-
+list_rev_final= []
+threads = []
 def Amzallscrp(url):
 	product_link = url
+	#number_of_review = GetReviewNumber(url)
+
+	global list_rev_final
+	global threads
+	list_rev_final = []
+	threads = []
 
 	pattern = r"B[A-Z0-9]{9}"
 	asin = ""
@@ -24,36 +33,74 @@ def Amzallscrp(url):
 		asin = asin + product_link[i]
 
 	link = "https://www.amazon.in/product-reviews/" + asin + "/ref=cm_cr_arp_d_paging_btm_2?ie=UTF8&reviewerType=all_reviews&pageNumber="
-
-	cnt = 1
-
-
-
-	list_rev_text = []
-	list_rev_title = []
-	list_rev = []
+	links = []
+	for i in range(1, 11):
+		links.append(link + str(i))
 
 
+	in_parallel(scrape, links)
 
-	while (1):
-		r = requests.get(link + str(cnt))
-		soup = BeautifulSoup(r.content, "lxml")
-		rev_data = soup.find_all("span", {"class": "review-text"})
-		rev_title = soup.find_all("a", {"class": "review-title"})
-
-		if not rev_data:
-			break
-
-		for item in rev_data:
-			list_rev_text.append(item.text)
-		for item in rev_title:
-			list_rev_title.append(item.text)
-		cnt = cnt + 1
+	if not list_rev_final:
+		return None
+		
+	return list_rev_final
 
 
 
-	for i in range(0, len(list_rev_text)):
-		list_rev.append(list_rev_title[i] + " " + list_rev_text[i])
 
-	return list_rev
 
+
+def scrape(url):
+    list_rev_text = []
+    list_rev_title = []
+    list_rev = []
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, "lxml")
+    rev_data = soup.find_all("span", {"class": "review-text"})
+    rev_title = soup.find_all("a", {"class": "review-title"})
+
+    for item in rev_data:
+        if item.text:
+	        list_rev_text.append(item.text)
+    for item in rev_title:
+        if item.text:
+	        list_rev_title.append(item.text)
+
+    for i in range(0, len(list_rev_text)):
+	    list_rev.append(list_rev_title[i] + " " + list_rev_text[i])
+    #print(len(list_rev))
+    global list_rev_final
+    list_rev_final = list_rev_final + list_rev
+
+    return True
+
+
+def in_parallel(fn, l):
+    for i in l:
+        process = Thread(target=fn, args=[i])
+        process.start()
+        threads.append(process)
+    
+    for process in threads:
+        process.join()
+
+#in_parallel(scrape, links)
+
+
+def GetReviewNumber(url):
+	revNumber = ""
+	r = requests.get(url)
+	soup = BeautifulSoup(r.content, "lxml")
+
+	custRevNum = soup.find_all("span", {"id": "acrCustomerReviewText"})
+
+	#revNumber = custRevNum[0].text
+	for item in custRevNum:
+		revNumber = item.text
+
+	revNum = int(''.join(re.findall(r"\d+", revNumber)))
+
+	print("printing value of revNum: " + str(revNum))
+
+
+	return revNum

@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Guppy</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        
+        <script>
+            $(document).ready(function(){
+                $('.ui.menu.open').on("click",function(e){
+                    e.preventDefault();
+                });
+                $('.ui.dropdown').dropdown();
+                });
+        </script>
+    
+    </head>
+    <body background="../static/images/bg.png">
+        <div class="ui container">
+            
+                <div class="ui text menu">
+                    <div class="ui right dropdown item">
+                        <i class="bars icon"></i>
+                        <div class="menu">
+                            <div class="item">Home</div>
+                            <div class="item">How Does It Work</div>
+                            <div class="item">About Us</div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="ui one column padded grid" style="background-color:white; padding-top:5%; padding-left:15%; padding-right:15%">
+
+                <div class="column">
+                    <img class="ui centered small image" src="../static/images/logo-1.png" alt="logo">
+                </div>
+
+                <div class="column">
+                    <div class="ui center aligned grid">
+                        <h1>Guppy</h1>
+                    </div>
+                </div>
+
+                <div class = "column">
+                    
+                        <form action="/result" method="get">
+                            <div class="ui padded fluid stackable center aligned action input">
+                            <input type="text" name="product_url" placeholder="Copy & Paste a Product Link from amazon.in">
+                            <button type="submit" class="ui button vk" >Decide</button>
+                            </div>
+                        </form>
+                    
+                </div>
+
+                <div class="column">
+                    <div class="ui padded center aligned grid">
+                        <h3 style="color:#BDBDBD">Decides For You</h3>
+                    </div>
+                </div>
+    
+
+                <div class = "ui padded center align grid grid">
+                        <img class="ui fluid image" src="../static/images/image3.png">
+                </div>
+
+            </div>
+
+            
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js"></script>
+    </body>
+</html>

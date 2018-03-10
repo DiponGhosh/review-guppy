@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>Guppy</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script>
+                $(document).ready(function(){
+                $('.ui.menu.open').on("click",function(e){
+                    e.preventDefault();
+                });
+                $('.ui.dropdown').dropdown();
+                });
+        </script>
+    
+    </head>
+    <body>
+        <div class ="ui fluid container" style="background-color:white">
+            <div class="ui massive three item menu borderless">
+                <div class="item">
+                    <h2>Guppy</h2><img class="ui tiny image" src="../static/images/logo-1.png">
+                </div>
+                <div class="item">
+                    <form action="/result" method="get">
+                        <div class="ui action input" style="">
+                            <input type="text" name="product_url" placeholder="Copy & Paste a Product Link from amazon.in">
+                            <button type="submit" class="ui button vk" >Decide</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="item">
+                    <div class="ui text menu">
+                        <div class="ui dropdown item">
+                            <i class="bars icon"></i>
+                            <div class="menu">
+                                <div class="item">Home</div>
+                                <div class="item">How Does It Work</div>
+                                <div class="item">About Us</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui column padded centered grid">
+                <div class="eight wide column">
+                    <!--<img class="ui fluid large rounded image" src="https://images-na.ssl-images-amazon.com/images/I/51ykkU3zX-L._SS1000_.jpg">-->
+                    <a href="http://google.com" class="ui large image">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/51ykkU3zX-L._SS500_.jpg">
+                    </a>
+                    <h1 style="color:black">Shopizone Laptop Bag Sleeve Notebook Case For Macbook 13 Inch Soft Cover - Black</h1>
+                </div>
+                <div class="eight wide column">
+                    <h1></h1>
+                    <h1></h1>
+                    <div class="ui segment">
+                        <div class="ui statistics">
+                            <div class="statistic">
+                                <div class="value">
+                                    75.00%
+                                </div>
+                                <div class="label">
+                                Positive
+                                </div>
+                            </div>
+                            <div class="statistic">
+                                <div class="value">
+                                    5.00%
+                                </div>
+                                <div class="label">
+                                Neutral
+                                </div>
+                            </div>
+                            <div class="statistic">
+                                <div class="value">
+                                    20.00%
+                                </div>
+                                <div class="label">
+                                Negative
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h1></h1>
+                    <h1></h1>
+                    <h1></h1>
+                    <div class="ui segment">
+                        <div class="ui items">
+                            <div class="item">
+                                <div class="ui tiny image">
+                                    <img src="../static/images/positive.png">
+                                </div>
+                                <div class="middle aligned content">
+                                    <p class="header">It Seems that there are only 75% reviews describing its good behaviour. So, you should go for it.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js"></script>
+    </body>
+</html>

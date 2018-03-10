@@ -48,7 +48,7 @@
   	left: 50%;
   	transform: translate(-50%, -50%);
   	border: 0px solid #00AA66;
-  	box-shadow: 2px 1px #E0E0E0, -0.2em 0 .3em #424242;;
+  	box-shadow: 2px 1px #E0E0E0, -0.2em 0 .3em #424242;
 }
 
 .search-button

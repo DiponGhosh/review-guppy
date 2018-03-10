@@ -2,6 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 
 def Productname(url):
+	productName = getProductName(url)
+	return productName
+
+def getProductName(url):
 	productName = ""
 	r = requests.get(url)
 	soup = BeautifulSoup(r.content, "lxml")
