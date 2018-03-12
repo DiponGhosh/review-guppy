@@ -1,4 +1,5 @@
 import os
+import time
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -34,11 +35,11 @@ def make_decision():
 
 	productName = Productname(product_url)
 	if not productName:
-		return '<h1>Connection Error</h1> <br/> <h3>Unstable Connection</h3>'
+		return '<h1>productname Connection Error</h1> <br/> <h3>Unstable Connection</h3>'
 
 	imageLink = ImgLink(product_url)
 	if not imageLink:
-		return '<h1>Connection Error</h1> <br/> <h3>Unstable Connection</h3>'
+		return '<h1>imagelink Connection Error</h1> <br/> <h3>Unstable Connection</h3>'
 	
 	reviews = Amzallscrp(product_url)
 
@@ -62,6 +63,8 @@ def make_decision():
 	#check condition
 	result_logo_src = negative_logo
 	result_text = "purchase it"
+
+	time.sleep(2)
 	
 	return render_template('decision.html', productName = productName, product_url=product_url,
 							rev = str(len(reviews)), 
