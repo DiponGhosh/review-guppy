@@ -1,7 +1,6 @@
 import re
 import pandas
 import requests
-import grequests
 from bs4 import BeautifulSoup
 from threading import Thread
 
