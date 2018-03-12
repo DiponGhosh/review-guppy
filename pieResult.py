@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import tkinter
 import _tkinter
 
 def PieResult(sizes):
