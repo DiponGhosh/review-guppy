@@ -44,19 +44,21 @@
             <div class="ui column padded centered grid">
                 <div class="eight wide column">
                     <!--<img class="ui fluid large rounded image" src="https://images-na.ssl-images-amazon.com/images/I/51ykkU3zX-L._SS1000_.jpg">-->
-                    <a href="http://google.com" class="ui large image">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/51ykkU3zX-L._SS500_.jpg">
+                    <a href="{{ product_url }}" class="ui large image">
+                        <img src="{{ product_image_src }}">
                     </a>
-                    <h1 style="color:black">Shopizone Laptop Bag Sleeve Notebook Case For Macbook 13 Inch Soft Cover - Black</h1>
+                    <h1 style="color:black">{{ productName }}</h1>
                 </div>
                 <div class="eight wide column">
-                    <h1></h1>
-                    <h1></h1>
+                    <h3 style="padding-left:18%">Review Analysis Report</h3>
+                    <div class="ui large image">
+                        <img src="{{ result_pie_src }}">
+                    </div>
                     <div class="ui segment">
                         <div class="ui statistics">
                             <div class="statistic">
                                 <div class="value">
-                                    75.00%
+                                    {{ pos }}%
                                 </div>
                                 <div class="label">
                                 Positive
@@ -64,7 +66,7 @@
                             </div>
                             <div class="statistic">
                                 <div class="value">
-                                    5.00%
+                                    {{ neu }}%
                                 </div>
                                 <div class="label">
                                 Neutral
@@ -72,7 +74,7 @@
                             </div>
                             <div class="statistic">
                                 <div class="value">
-                                    20.00%
+                                    {{ neg }}%
                                 </div>
                                 <div class="label">
                                 Negative
@@ -80,17 +82,14 @@
                             </div>
                         </div>
                     </div>
-                    <h1></h1>
-                    <h1></h1>
-                    <h1></h1>
                     <div class="ui segment">
                         <div class="ui items">
                             <div class="item">
                                 <div class="ui tiny image">
-                                    <img src="../static/images/positive.png">
+                                    <img src="{{ result_logo_src }}">
                                 </div>
                                 <div class="middle aligned content">
-                                    <p class="header">It Seems that there are only 75% reviews describing its good behaviour. So, you should go for it.</p>
+                                    <p class="header">{{ result_text }}</p>
                                 </div>
                             </div>
                         </div>

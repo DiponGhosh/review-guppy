@@ -11,6 +11,13 @@
                 });
                 $('.ui.dropdown').dropdown();
                 });
+
+
+                $(".button").each(function (){
+                    $(this).click(function () {                              
+                        $(this).addClass("loading");        
+                    });
+                });
         </script>
     
     </head>
@@ -42,10 +49,10 @@
 
                 <div class = "column">
                     
-                        <form action="/result" method="get">
+                        <form action='/result' method="get">
                             <div class="ui padded fluid stackable center aligned action input">
                             <input type="text" name="product_url" placeholder="Copy & Paste a Product Link from amazon.in">
-                            <button type="submit" class="ui button vk" >Decide</button>
+                            <button type="submit" class="ui button vk">Decide</button>
                             </div>
                         </form>
                     
