@@ -29,7 +29,7 @@ def contact():
 
 @app.route('/result', methods = ['GET'])
 def make_decision():
-	os.remove('./static/images/result_pie.png')
+	#os.remove('./static/images/result_pie.png')
 	product_url = request.args.get('product_url')
 
 	productName = Productname(product_url)

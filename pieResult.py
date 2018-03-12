@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import _tkinter
 
 def PieResult(sizes):
     labels = ['positive', 'neutral', 'negative']
