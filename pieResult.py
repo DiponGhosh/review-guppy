@@ -24,7 +24,7 @@ def PieResult(sizes):
     img = StringIO()
     img_src = './static/images/pie/' + str(img) + '.png'
     plt.savefig(img_src)
-    return img_src
+    return str(img_src)
 
 #list_reult = ['75.00', '5.00', '20.00']
 #PieResult(list_reult)
