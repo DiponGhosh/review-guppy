@@ -1,13 +1,19 @@
 import requests
 from bs4 import BeautifulSoup
 
+
+HEADERS = {
+    'user-agent': ('Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 '
+                   '(KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36')
+}
+
 def Productname(url):
 	productName = getProductName(url)
 	return productName
 
 def getProductName(url):
 	productName = ""
-	r = requests.get(url)
+	r = requests.get(url, headers=HEADERS)
 	soup = BeautifulSoup(r.content, "lxml")
 
 	prod_title = soup.find("span", {"id": "productTitle"})
