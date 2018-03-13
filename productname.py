@@ -13,7 +13,14 @@ def Productname(url):
 
 def getProductName(url):
 	productName = ""
-	r = requests.get(url, headers=HEADERS)
+
+	for i in range(0, 3):
+		r = requests.get(url, headers=HEADERS)
+		if r.status_code == 200:
+			break
+	if r.status_code != 200:
+		return None
+
 	soup = BeautifulSoup(r.content, "lxml")
 
 	prod_title = soup.find("span", {"id": "productTitle"})

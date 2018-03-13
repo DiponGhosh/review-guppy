@@ -1,5 +1,3 @@
-import os
-import time
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -30,7 +28,6 @@ def contact():
 
 @app.route('/result', methods = ['GET'])
 def make_decision():
-	#os.remove('./static/images/result_pie.png')
 	product_url = request.args.get('product_url')
 
 	productName = Productname(product_url)
@@ -53,21 +50,19 @@ def make_decision():
 
 	list_result = Predictor(reviews)
 
-	PieResult(list_result)
+	result_pie_src = PieResult(list_result)
 
 	positive_logo = '../static/images/positive.png'
 	neutral_logo = '../static/images/neutral.png'
 	negative_logo = '../static/images/negative.png'
-	result_pie_src = '../static/images/result_pie.png'
+	#result_pie_src = '../static/images/result_pie.png'
 
 	#check condition
 	result_logo_src = negative_logo
 	result_text = "purchase it"
-
-	time.sleep(2)
 	
 	return render_template('decision.html', productName = productName, product_url=product_url,
-							rev = str(len(reviews)), 
+							rev = str(len(reviews)),
 							pos = list_result[0], neg = list_result[1], neu = list_result[2],
 							product_image_src=imageLink, result_logo_src=result_logo_src,
 							result_pie_src=result_pie_src, result_text=result_text)

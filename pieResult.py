@@ -1,10 +1,11 @@
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from io import StringIO
 
 def PieResult(sizes):
-    labels = ['positive', 'neutral', 'negative']
-    colors = ['#2E7D32', '#F57C00', '#D32F2F']
+    labels = ['positive', 'negative', 'neutral']
+    colors = ['#2E7D32', '#D32F2F', '#F57C00']
 
     plt.title('Review Analysis')
     fig1, ax1 = plt.subplots()
@@ -20,7 +21,10 @@ def PieResult(sizes):
     ax1.axis('equal')
     plt.tight_layout()
     #plt.show()
-    plt.savefig('./static/images/result_pie.png')
+    img = StringIO()
+    img_src = './static/images/pie/' + str(img) + '.png'
+    plt.savefig(img_src)
+    return img_src
 
 #list_reult = ['75.00', '5.00', '20.00']
 #PieResult(list_reult)

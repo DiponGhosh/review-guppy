@@ -5,6 +5,12 @@ from bs4 import BeautifulSoup
 from threading import Thread
 
 
+HEADERS = {
+    'user-agent': ('Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 '
+                   '(KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36')
+}
+
+
 '''
 for item in list_rev:
 	print(item + "\n\n") '''
@@ -45,15 +51,20 @@ def Amzallscrp(url):
 	return list_rev_final
 
 
-
-
-
-
 def scrape(url):
     list_rev_text = []
     list_rev_title = []
     list_rev = []
-    r = requests.get(url)
+
+    for i in range(0, 3):
+        r = requests.get(url, headers=HEADERS)
+        if r.status_code == 200:
+            break
+
+    if r.status_code != 200:
+        return False	
+
+    r = requests.get(url, headers=HEADERS)
     soup = BeautifulSoup(r.content, "lxml")
     rev_data = soup.find_all("span", {"class": "review-text"})
     rev_title = soup.find_all("a", {"class": "review-title"})
