@@ -23,6 +23,10 @@ def about():
 def how():
 	return render_template('how.html')
 
+@app.route('/what')
+def what():
+	return render_template('what.html')
+
 @app.route('/result', methods = ['GET'])
 def make_decision():
 	product_url = request.args.get('product_url')
