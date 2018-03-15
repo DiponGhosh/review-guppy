@@ -7,6 +7,7 @@ from predictor import Predictor
 from productname import Productname
 from pieResult import PieResult
 from imgLink import ImgLink
+from decisionMake import DecisionMake
 
 app = Flask(__name__)
 
@@ -20,15 +21,14 @@ def about():
 
 @app.route('/how')
 def how():
-	return render_template('index.html')
-
-@app.route('/contact')
-def contact():
-	return render_template('index.html')
+	return render_template('how.html')
 
 @app.route('/result', methods = ['GET'])
 def make_decision():
 	product_url = request.args.get('product_url')
+
+	if product_url is None:
+		return '<h1>Please provide a Valid Link from amazon.in</h1>'
 
 	productName = Productname(product_url)
 	if not productName:
@@ -51,22 +51,33 @@ def make_decision():
 	list_result = Predictor(reviews)
 
 	result_pie_src = PieResult(list_result)
+	result_logo_src = ''
+	segment_color = ''
 
 	positive_logo = '../static/images/positive.png'
 	neutral_logo = '../static/images/neutral.png'
 	negative_logo = '../static/images/negative.png'
 	#result_pie_src = '../static/images/result_pie.png'
 
-	#check condition
-	result_logo_src = negative_logo
-	result_text = "purchase it"
+	result_text, result_logo_indicator = DecisionMake(list_result)
+
+	if result_logo_indicator == 0:
+		result_logo_src = positive_logo
+		segment_color = 'green'
+	elif result_logo_indicator == 1:
+		result_logo_src = negative_logo
+		segment_color = 'red'
+	elif result_logo_indicator == 2:
+		result_logo_src = neutral_logo
+		segment_color = 'orange'
+
 	
 	return render_template('decision.html', productName = productName, product_url=product_url,
 							rev = str(len(reviews)),
 							pos = list_result[0], neg = list_result[1], neu = list_result[2],
 							product_image_src=imageLink, result_logo_src=result_logo_src,
-							result_pie_src=result_pie_src, result_text=result_text)
-	
+							result_pie_src=result_pie_src, result_text=result_text,
+							segment_color=segment_color)
 
 if __name__ == '__main__':
 	app.run(debug = True)

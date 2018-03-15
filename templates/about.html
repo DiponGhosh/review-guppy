@@ -1,9 +1,59 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
+    <head>
+        <title>Guppy</title>
+        <link rel="shortcut icon" href="../static/images/favicon.ico"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script>
+                $(document).ready(function(){
+                $('.ui.menu.open').on("click",function(e){
+                    e.preventDefault();
+                });
+                $('.ui.dropdown').dropdown();
+                });
+        </script>
+    
+    </head>
+    <body>
+        <div class ="ui fluid container" style="background-color:white">
+            <div class="ui massive three item menu borderless">
+                    <div class="item">
+                        <a href="/"><h2>Guppy</h2></a><a href="/"><img class="ui tiny image" src="../static/images/logo-1.png"></a>
+                    </div>
+                <div class="item">
+                    <form action="/result" method="get">
+                        <div class="ui action input" style="">
+                            <input type="text" name="product_url" placeholder="Copy & Paste a Product Link from amazon.in">
+                            <button type="submit" class="ui button vk" >Decide</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="item">
+                    <div class="ui text menu">
+                        <div class="ui dropdown item">
+                            <i class="bars icon"></i>
+                            <div class="menu">
+                                <div class="item"><a href="/">Home</a></div>
+                                <div class="item"><a href="/how">How Does It Work</a></div>
+                                <div class="item"><a href="/about">About Us</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+			
+			<div class="ui column padded centered grid">
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+					<div class="ui centered tall stacked blue padded segment">
+						<h2>About Us</h2>
+					</div>
+				</div>
+				<div class="two wide column"></div>
+			</div>
 
-</body>
-</html>>
+		</div>
+		
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js"></script>
+    </body>
+</html>
