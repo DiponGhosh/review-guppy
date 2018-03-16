@@ -23,7 +23,7 @@ def DecisionMake(result):
         result_logo_indicator = 0
     
     elif pos == 0.00 and neg == 0.00 and neu == 100.00:
-        result_text = "All the reviews for this product are found to be neutral. You can try it or you can go for similar product."
+        result_text = "All the reviews for this product are found to be neutral. You can try it or you can go for another similar product."
         result_logo_indicator = 2
     
     elif pos == 0.00 and neg == 100.00 and neu == 0.00:
@@ -59,11 +59,11 @@ def DecisionMake(result):
             result_text = "For this product, positive reviews are little more than negatives. So, there are almost equal chance of being good or bad. So, if you want this product, you can buy it."
             result_logo_indicator = 2
 
-        elif pos_neu >= 50 and pos_neu < 65:
-            result_text = "We found that positive and negative reviews are almost equal. We would recommend you to go for another similar kind of product or you can buy if you only need this."
+        elif pos_neu >= 55 and pos_neu < 65:
+            result_text = "We found that positive reviews are below the standard. So, we would recommend you to go for another similar kind of product or you can buy if you only need this."
             result_logo_indicator = 2
 
-        elif pos_neu < 50 and pos_neu >= 45:
+        elif pos_neu < 55 and pos_neu >= 45:
             result_text = "We found that positive and negative reviews are almost equal. We would recommend you to go for another similar kind of product or you can buy if you only need this."
             result_logo_indicator = 2
 
