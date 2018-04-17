@@ -56,7 +56,7 @@ def DecisionMake(result):
             result_logo_indicator = 0
 
         elif pos_neu >= 65 and pos_neu < 70.00:
-            result_text = "For this product, positive reviews are little more than negatives. So, there are almost equal chance of being good or bad. So, if you want this product, you can buy it."
+            result_text = "For this product, positive reviews are more than negative ones though, there are a good chance of being good. So, if you want this product, you can buy it."
             result_logo_indicator = 2
 
         elif pos_neu >= 55 and pos_neu < 65:

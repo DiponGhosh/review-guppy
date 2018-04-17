@@ -17,6 +17,7 @@ for item in list_rev:
 	print(item + "\n\n") '''
 list_rev_final= []
 threads = []
+
 def Amzallscrp(url):
 	product_link = url
 	#number_of_review = GetReviewNumber(url)
