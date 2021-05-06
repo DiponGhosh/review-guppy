@@ -1,7 +1,7 @@
 beautifulsoup4==4.6.0
 cloudpickle==0.4.0
 Flask==0.12.2
-Flask-Cors==3.0.3
+Flask-Cors==3.0.9
 gunicorn==19.7.1
 h5py==2.7.0
 heapdict==1.0.0
